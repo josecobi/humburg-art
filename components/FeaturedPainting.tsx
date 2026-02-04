@@ -168,14 +168,14 @@ export default function FeaturedPainting() {
           cursor: 'grab',
           userSelect: 'none',
           WebkitUserDrag: 'none',
-        }}
+        } as React.CSSProperties}
       >
         <div
           className="flex gap-6 md:gap-8 px-4 md:px-8 pb-8 min-w-max"
           style={{
             WebkitUserDrag: 'none',
             userSelect: 'none',
-          }}
+          } as React.CSSProperties}
         >
           {artworks.map((artwork, index) => (
             <motion.div
@@ -206,7 +206,7 @@ export default function FeaturedPainting() {
                   filter: 'drop-shadow(0 20px 40px rgba(45, 40, 32, 0.15))',
                   WebkitUserDrag: 'none',
                   userSelect: 'none',
-                }}
+                } as React.CSSProperties}
               >
                 <Image
                   src={artwork.src}
@@ -219,7 +219,7 @@ export default function FeaturedPainting() {
                     pointerEvents: 'none',
                     WebkitUserDrag: 'none',
                     userSelect: 'none',
-                  }}
+                  } as React.CSSProperties}
                 />
               </div>
 
