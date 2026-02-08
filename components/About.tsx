@@ -18,7 +18,7 @@ export default function About() {
           >
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 shadow-2xl">
               <Image
-                src="/TVY6078.jpg"
+                src="/about/attachments (2)/IMG_4143.jpg"
                 alt="Artist Portrait"
                 fill
                 className="object-cover"

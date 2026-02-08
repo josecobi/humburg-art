@@ -34,3 +34,56 @@ body {
     @apply border-primary-600 text-primary-800 hover:border-primary-900 hover:text-primary-900;
   }
 }
+
+/* Lightbox Zoom Enhancements */
+.yarl__slide,
+.yarl__slide *,
+.yarl__slide img,
+.yarl__slide_current,
+.yarl__slide_current * {
+  cursor: default !important;
+}
+
+/* Force grab cursor when zoomed - multiple selectors for specificity */
+.yarl__container[style*="grab"],
+.yarl__container[style*="grab"] *,
+.yarl__container[style*="grab"] .yarl__slide,
+.yarl__container[style*="grab"] .yarl__slide *,
+.yarl__container[style*="grab"] .yarl__slide img,
+.yarl__slide[style*="grab"],
+.yarl__slide[style*="grab"] *,
+.yarl__slide[style*="grab"] img,
+div[class*="yarl"][style*="grab"],
+div[class*="yarl"][style*="grab"] *,
+div[class*="yarl"][style*="grab"] img {
+  cursor: grab !important;
+}
+
+/* Force grabbing cursor when dragging */
+.yarl__container[style*="grabbing"],
+.yarl__container[style*="grabbing"] *,
+.yarl__container[style*="grabbing"] .yarl__slide,
+.yarl__container[style*="grabbing"] .yarl__slide *,
+.yarl__slide[style*="grabbing"],
+.yarl__slide[style*="grabbing"] *,
+.yarl__slide[style*="grabbing"] img,
+div[class*="yarl"][style*="grabbing"],
+div[class*="yarl"][style*="grabbing"] *,
+div[class*="yarl"][style*="grabbing"] img {
+  cursor: grabbing !important;
+}
+
+/* Smooth zoom transitions */
+.yarl__slide img {
+  transition: transform 0.2s ease-out;
+}
+
+/* Zoom button styling */
+.yarl__button {
+  transition: all 0.2s ease;
+}
+
+.yarl__button:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  transform: scale(1.1);
+}
