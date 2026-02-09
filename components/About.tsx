@@ -7,6 +7,7 @@ export default function About() {
   return (
     <section id="about" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{
       scrollSnapAlign: 'start',
+      scrollSnapStop: 'always',
       minHeight: '100dvh'
     }}>
       <div className="container mx-auto px-4 pt-24 md:pt-32">

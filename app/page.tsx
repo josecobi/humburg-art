@@ -20,10 +20,16 @@ export default function Home() {
       <div style={{ height: '150vh' }}>
         <FeaturedPaintingParallax />
       </div>
-      <About />
-      <CTA />
+      <div style={{ height: '100vh' }}>
+        <About />
+      </div>
+      <div style={{ height: '100vh' }}>
+        <CTA />
+      </div>
       {/* <Gallery /> */}
-      <Contact />
+      <div style={{ height: '100vh' }}>
+        <Contact />
+      </div>
     </div>
   );
 }

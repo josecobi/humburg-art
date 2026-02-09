@@ -7,6 +7,7 @@ export default function CTA() {
   return (
     <section className="sticky top-0 min-h-screen flex items-center bg-gradient-to-br from-primary-100 via-primary-50 to-white overflow-hidden z-10 relative" style={{
       scrollSnapAlign: 'start',
+      scrollSnapStop: 'always',
       minHeight: '100dvh'
     }}>
       {/* Decorative background elements */}

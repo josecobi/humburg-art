@@ -165,7 +165,7 @@ export default function FeaturedPaintingParallax() {
         minHeight: '100dvh'
       }}
     >
-      <div className="container mx-auto px-4 mb-2 pt-24 md:pt-32">
+      <div className="container mx-auto px-4 mb-2 pt-32 md:pt-32">
         <div className="flex justify-between items-center mb-3">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -419,16 +419,41 @@ export default function FeaturedPaintingParallax() {
         </div>
       </div>
 
-      {/* Scroll Hint - Mobile */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+      {/* Scroll Down Button - Mobile */}
+      <motion.button
+        onClick={() => {
+          // Scroll down by one viewport height to reveal the next section
+          window.scrollBy({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+        }}
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="md:hidden mt-4 mb-16 text-center text-sm text-primary-600"
+        whileHover={{ y: 5 }}
+        whileTap={{ scale: 0.95 }}
+        className="md:hidden mx-auto mt-auto mb-8 flex flex-col items-center gap-2 text-primary-600 hover:text-primary-900 transition-colors duration-300"
+        aria-label="Scroll to next section"
       >
-        ← Swipe to explore →
-      </motion.div>
+        <span className="text-sm font-medium">Explore more</span>
+        <motion.svg
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </motion.svg>
+      </motion.button>
 
       <style jsx>{`
         .hide-scrollbar::-webkit-scrollbar {

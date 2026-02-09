@@ -86,8 +86,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{
+    <section id="contact" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10 py-16 md:py-20" style={{
       scrollSnapAlign: 'start',
+      scrollSnapStop: 'always',
       minHeight: '100dvh'
     }}>
       <div className="container mx-auto px-4">
