@@ -250,8 +250,6 @@ export default function FeaturedPaintingParallax() {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onDragStart={handleDragStart}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
         className="overflow-x-auto overflow-y-hidden hide-scrollbar"
         role="region"
         aria-label="Scrollable gallery of artworks"

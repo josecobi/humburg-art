@@ -18,7 +18,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
-          <ul className="flex items-center space-x-8">
+          <ul className="flex items-baseline space-x-8">
             <li>
               <Link
                 href="/"
@@ -38,12 +38,12 @@ export default function Header() {
 
             {/* Gallery with Dropdown */}
             <li
-              className="relative flex items-center"
+              className="relative"
               onMouseEnter={() => setGalleryDropdownOpen(true)}
               onMouseLeave={() => setGalleryDropdownOpen(false)}
             >
               <button
-                className="text-primary-700 hover:text-primary-900 font-medium transition-colors duration-300 border-b-2 border-transparent hover:border-primary-900 pb-1 flex items-center gap-1 self-center"
+                className="text-primary-700 hover:text-primary-900 font-medium transition-colors duration-300 border-b-2 border-transparent hover:border-primary-900 pb-1 inline-flex items-center gap-1"
               >
                 Gallery
                 <svg
