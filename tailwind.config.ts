@@ -33,6 +33,18 @@ const config: Config = {
           800: '#4A3D2E',
           900: '#332A1F',
         },
+        blue: {
+          50: '#EFF8F8',
+          100: '#D9EEEE',
+          200: '#B3DEDD',
+          300: '#7BC5C4',
+          400: '#4AA9A8',
+          500: '#2A8B8A',
+          600: '#1F6F6E',
+          700: '#175554',
+          800: '#0F3B3A',
+          900: '#0A2827',
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],

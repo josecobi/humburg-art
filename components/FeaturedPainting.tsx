@@ -230,7 +230,7 @@ export default function FeaturedPainting() {
                 onMouseDown={(e) => e.stopPropagation()}
               >
                 <h3 className="font-serif text-lg text-primary-900 mb-1">{artwork.alt}</h3>
-                <p className="text-sm text-primary-600">Mixed Media, 2024</p>
+                <p className="text-sm text-primary-600">Mixed Media, 2026</p>
               </div>
             </motion.div>
           ))}

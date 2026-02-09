@@ -1,0 +1,7 @@
+[     522ms] [WARNING] Image with src "/TVY6064.jpg" is using deprecated "onLoadingComplete" property. Please use the "onLoad" property instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     528ms] [WARNING] Image with src "/TVY6078.jpg" is using deprecated "onLoadingComplete" property. Please use the "onLoad" property instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     529ms] [WARNING] Image with src "/TVY6085.jpg" is using deprecated "onLoadingComplete" property. Please use the "onLoad" property instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     531ms] [WARNING] Image with src "/TVY6086.jpg" is using deprecated "onLoadingComplete" property. Please use the "onLoad" property instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     533ms] [WARNING] Image with src "/TVY6096.jpg" is using deprecated "onLoadingComplete" property. Please use the "onLoad" property instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     546ms] [WARNING] Image with src "/about/attachments (2)/IMG_4143.jpg" is using deprecated "onLoadingComplete" property. Please use the "onLoad" property instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[     552ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0

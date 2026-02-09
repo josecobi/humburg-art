@@ -1,0 +1,193 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Humburg Art" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - button "Toggle menu" [ref=e6] [cursor=pointer]:
+          - img [ref=e7]
+    - main [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: Your browser does not support the video tag.
+          - generic [ref=e15]:
+            - heading "CLAUDIA HUMBURG" [level=1] [ref=e17]
+            - paragraph [ref=e19]: Contemporary artist specializing in abstract expressionism and mixed media explorations of form and emotion
+            - generic [ref=e20]:
+              - link "View Gallery" [ref=e21] [cursor=pointer]:
+                - /url: /galleries
+              - link "Get in Touch" [ref=e22] [cursor=pointer]:
+                - /url: "#contact"
+            - generic [ref=e24]: SCROLL
+        - region "Featured artworks gallery" [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]:
+                - generic [ref=e31]: FEATURED
+                - heading "Selected Works" [level=2] [ref=e32]
+              - generic [ref=e33]:
+                - button "Scroll to previous artworks" [ref=e34] [cursor=pointer]:
+                  - img [ref=e35]
+                - button "Scroll to next artworks" [ref=e37] [cursor=pointer]:
+                  - img [ref=e38]
+            - generic [ref=e40]:
+              - img [ref=e41]
+              - generic [ref=e43]: Drag to explore or use arrows
+          - region "Scrollable gallery of artworks" [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - generic [ref=e48]:
+                  - img "Artwork 1"
+                - generic [ref=e50]:
+                  - heading "Artwork 1" [level=3] [ref=e51]
+                  - paragraph [ref=e52]: Mixed Media, 2026
+              - generic [ref=e53]:
+                - generic:
+                  - generic:
+                    - heading "CONTEMPORARY ABSTRACT ART" [level=2]:
+                      - text: CONTEMPORARY
+                      - text: ABSTRACT
+                      - text: ART
+                - generic [ref=e55]:
+                  - img "Artwork 2"
+                - generic [ref=e57]:
+                  - heading "Artwork 2" [level=3] [ref=e58]
+                  - paragraph [ref=e59]: Mixed Media, 2026
+              - generic [ref=e60]:
+                - generic [ref=e62]:
+                  - img "Artwork 3"
+                - generic [ref=e64]:
+                  - heading "Artwork 3" [level=3] [ref=e65]
+                  - paragraph [ref=e66]: Mixed Media, 2026
+              - generic [ref=e67]:
+                - generic [ref=e69]:
+                  - img "Artwork 4"
+                - generic [ref=e71]:
+                  - heading "Artwork 4" [level=3] [ref=e72]
+                  - paragraph [ref=e73]: Mixed Media, 2026
+              - generic [ref=e74]:
+                - generic [ref=e76]:
+                  - img "Artwork 5"
+                - generic [ref=e78]:
+                  - heading "Artwork 5" [level=3] [ref=e79]
+                  - paragraph [ref=e80]: Mixed Media, 2026
+              - link "View all artworks in the gallery" [ref=e81] [cursor=pointer]:
+                - /url: /galleries
+                - generic [ref=e82]:
+                  - heading "View All Works" [level=3] [ref=e83]:
+                    - text: View All
+                    - text: Works
+                  - generic [ref=e84]:
+                    - generic [ref=e85]: Explore Gallery
+                    - img [ref=e86]
+          - generic [ref=e88]: ← Swipe to explore →
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - img "Claudia Humburg - Contemporary Artist Portrait" [ref=e96]
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: MFA, Contemporary Art
+              - paragraph [ref=e99]: Based in Baltimore, MD
+          - generic [ref=e101]:
+            - generic [ref=e102]: ABOUT
+            - heading "Creating art that speaks to the soul" [level=2] [ref=e103]:
+              - text: Creating art that
+              - text: speaks to the soul
+            - generic [ref=e104]:
+              - paragraph [ref=e105]: With over a decade of experience in contemporary art, my work explores the intersection of traditional techniques and modern expression. My artistic journey has been shaped by a deep fascination with color, form, and the emotional impact of visual art.
+              - paragraph [ref=e106]: Through my paintings and mixed media works, I aim to create pieces that resonate with viewers on a personal level, encouraging them to see the world through a different lens. My approach combines careful planning with spontaneous creativity.
+              - paragraph [ref=e107]: Each piece is a dialogue between intention and intuition, where planned compositions meet unexpected moments of inspiration. This balance creates works that are both thoughtfully constructed and emotionally authentic.
+            - generic [ref=e108]:
+              - heading "EXPERTISE" [level=3] [ref=e109]
+              - generic [ref=e110]:
+                - generic [ref=e111]: Abstract Painting
+                - generic [ref=e112]: Mixed Media
+        - generic [ref=e118]:
+          - generic [ref=e119]:
+            - heading "Let's Create Together" [level=2] [ref=e120]
+            - paragraph [ref=e121]: Whether you're looking for a commission piece or want to explore available works, I'd love to hear from you and discuss how art can transform your space.
+          - generic [ref=e122]:
+            - link "Browse Gallery" [ref=e123] [cursor=pointer]:
+              - /url: /galleries
+            - link "Commission a Piece" [ref=e124] [cursor=pointer]:
+              - /url: "#contact"
+          - paragraph [ref=e125]: Available for commissions, exhibitions, and collaborations
+        - generic [ref=e129]:
+          - generic [ref=e131]:
+            - generic [ref=e132]: CONTACT
+            - heading "Let's start a conversation" [level=2] [ref=e133]:
+              - text: Let's start a
+              - text: conversation
+            - paragraph [ref=e134]: Interested in commissioning a piece, discussing a collaboration, or learning more about my work? I'd love to hear from you.
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - heading "EMAIL" [level=4] [ref=e137]
+                - link "claudiah1@mac.com" [ref=e138] [cursor=pointer]:
+                  - /url: mailto:claudiah1@mac.com
+              - generic [ref=e139]:
+                - heading "PHONE" [level=4] [ref=e140]
+                - link "+1 818 281 2487" [ref=e141] [cursor=pointer]:
+                  - /url: tel:+18182812487
+              - generic [ref=e142]:
+                - heading "LOCATION" [level=4] [ref=e143]
+                - paragraph [ref=e144]: Baltimore, MD
+          - generic [ref=e146]:
+            - generic [ref=e147]:
+              - generic [ref=e148]: NAME *
+              - textbox "NAME *" [ref=e149]:
+                - /placeholder: Your full name
+            - generic [ref=e150]:
+              - generic [ref=e151]: EMAIL *
+              - textbox "EMAIL *" [ref=e152]:
+                - /placeholder: your@email.com
+            - generic [ref=e153]:
+              - generic [ref=e154]: SUBJECT *
+              - textbox "SUBJECT *" [ref=e155]:
+                - /placeholder: What is this about?
+            - generic [ref=e156]:
+              - generic [ref=e157]: MESSAGE *
+              - textbox "MESSAGE *" [ref=e158]:
+                - /placeholder: Tell me about your project or inquiry...
+            - button "send message" [ref=e159] [cursor=pointer]:
+              - generic [ref=e160]: send message
+              - img [ref=e161]
+    - contentinfo [ref=e163]:
+      - generic [ref=e164]:
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - heading "Claudia Humburg" [level=3] [ref=e167]
+            - paragraph [ref=e168]: Contemporary artist exploring the boundaries of abstract expressionism and mixed media art.
+            - generic [ref=e169]:
+              - paragraph [ref=e170]: Baltimore, MD
+              - paragraph [ref=e171]:
+                - link "claudiah1@mac.com" [ref=e172] [cursor=pointer]:
+                  - /url: mailto:claudiah1@mac.com
+              - paragraph [ref=e173]:
+                - link "+1 818 281 2487" [ref=e174] [cursor=pointer]:
+                  - /url: tel:+18182812487
+          - generic [ref=e175]:
+            - heading "NAVIGATE" [level=4] [ref=e176]
+            - list [ref=e177]:
+              - listitem [ref=e178]:
+                - link "About" [ref=e179] [cursor=pointer]:
+                  - /url: "#about"
+              - listitem [ref=e180]:
+                - link "Gallery" [ref=e181] [cursor=pointer]:
+                  - /url: "#gallery"
+              - listitem [ref=e182]:
+                - link "Contact" [ref=e183] [cursor=pointer]:
+                  - /url: "#contact"
+          - generic [ref=e184]:
+            - heading "NEWSLETTER" [level=4] [ref=e185]
+            - generic [ref=e186]:
+              - textbox "Your email" [ref=e187]
+              - button "Join" [ref=e188] [cursor=pointer]
+        - generic [ref=e189]:
+          - paragraph [ref=e190]: © 2026 Claudia Humburg. All rights reserved.
+          - generic [ref=e191]:
+            - link "Privacy Policy" [ref=e192] [cursor=pointer]:
+              - /url: "#"
+            - link "Terms of Use" [ref=e193] [cursor=pointer]:
+              - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e199] [cursor=pointer]:
+    - img [ref=e200]
+  - alert [ref=e203]

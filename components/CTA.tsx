@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import Button from './Button';
 
 export default function CTA() {
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-br from-primary-100 via-primary-50 to-white overflow-hidden">
+    <section className="sticky top-0 min-h-screen flex items-center bg-gradient-to-br from-primary-100 via-primary-50 to-white overflow-hidden z-10 relative" style={{ scrollSnapAlign: 'start' }}>
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-300 rounded-full blur-3xl"></div>
@@ -38,19 +38,23 @@ export default function CTA() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Link
-              href="/small-canvas"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary-900 text-white font-medium text-lg hover:bg-primary-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-w-[220px]"
+            <Button
+              href="/galleries"
+              variant="accent"
+              size="md"
+              className="transform hover:-translate-y-1 min-w-[220px]"
             >
               Browse Gallery
-            </Link>
+            </Button>
 
-            <Link
+            <Button
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-900 font-medium text-lg border-2 border-primary-900 hover:bg-primary-900 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-w-[220px]"
+              variant="secondary"
+              size="md"
+              className="transform hover:-translate-y-1 min-w-[220px]"
             >
               Commission a Piece
-            </Link>
+            </Button>
           </motion.div>
 
           {/* Secondary text */}

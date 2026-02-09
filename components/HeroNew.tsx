@@ -1,21 +1,45 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Button from './Button';
 
 export default function Hero() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
   return (
-    <section className="relative min-h-screen w-full bg-primary-50 overflow-hidden">
+    <section className="sticky top-0 min-h-screen w-full bg-primary-50 overflow-hidden z-10" style={{ scrollSnapAlign: 'start' }}>
       {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
+      {!reducedMotion ? (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/TVY6064.jpg"
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: 'url(/TVY6064.jpg)' }}
+          role="img"
+          aria-label="Abstract artwork background"
+        />
+      )}
 
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/60"></div>
@@ -28,7 +52,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <h1 className="font-serif text-3xl md:text-3xl lg:text-3xl xl:text-[5rem] font-bold text-white leading-[0.9] tracking-tight mb-12">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[0.9] tracking-tight mb-8 md:mb-12">
               CLAUDIA HUMBURG
             </h1>
           </motion.div>
@@ -38,11 +62,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed px-4">
               Contemporary artist specializing in abstract expressionism
-              <br />
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               and mixed media explorations of form and emotion
             </p>
           </motion.div>
@@ -52,21 +77,25 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4"
           >
-            <Link
-              href="#gallery"
-              className="inline-flex items-center justify-center text-center px-8 py-4 bg-cyan-600 text-white font-medium text-lg hover:bg-cyan-700 transition-colors duration-300 min-w-[200px]"
+            <Button
+              href="/galleries"
+              variant="accent"
+              size="md"
+              className="min-w-[200px] w-full sm:w-auto"
             >
               View Gallery
-            </Link>
+            </Button>
 
-            <Link
+            <Button
               href="#contact"
-              className="inline-flex items-center justify-center text-center px-8 py-4 bg-cyan-600 text-white font-medium text-lg hover:bg-cyan-700 transition-colors duration-300 min-w-[200px]"
+              variant="outline"
+              size="md"
+              className="min-w-[200px] w-full sm:w-auto"
             >
               Get in Touch
-            </Link>
+            </Button>
           </motion.div>
 
           {/* Scroll Indicator - Bottom Center */}

@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import ImageWithSkeleton from "./ImageWithSkeleton";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-primary-100">
+    <section id="about" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{ scrollSnapAlign: 'start' }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column - Image */}
@@ -16,11 +16,13 @@ export default function About() {
             transition={{ duration: 1 }}
             className="lg:col-span-5"
           >
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 shadow-2xl">
-              <Image
+            <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 shadow-2xl overflow-hidden">
+              <ImageWithSkeleton
                 src="/about/attachments (2)/IMG_4143.jpg"
-                alt="Artist Portrait"
+                alt="Claudia Humburg - Contemporary Artist Portrait"
                 fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                loading="lazy"
                 className="object-cover"
               />
             </div>
@@ -34,7 +36,7 @@ export default function About() {
               className="mt-8 space-y-2 text-sm text-primary-700"
             >
               <p className="font-serif italic">MFA, Contemporary Art</p>
-              <p className="font-serif italic">Based in New York</p>
+              <p className="font-serif italic">Based in Baltimore, MD</p>
             </motion.div>
           </motion.div>
 
@@ -96,8 +98,6 @@ export default function About() {
                   {[
                     'Abstract Painting',
                     'Mixed Media',
-                    'Digital Art',
-                    'Sculpture'
                   ].map((skill, index) => (
                     <motion.div
                       key={skill}
