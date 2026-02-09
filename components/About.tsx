@@ -5,8 +5,11 @@ import ImageWithSkeleton from "./ImageWithSkeleton";
 
 export default function About() {
   return (
-    <section id="about" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{ scrollSnapAlign: 'start' }}>
-      <div className="container mx-auto px-4">
+    <section id="about" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{
+      scrollSnapAlign: 'start',
+      minHeight: '100dvh'
+    }}>
+      <div className="container mx-auto px-4 pt-24 md:pt-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column - Image */}
           <motion.div

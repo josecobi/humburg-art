@@ -86,7 +86,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{ scrollSnapAlign: 'start' }}>
+    <section id="contact" className="sticky top-0 min-h-screen flex items-center bg-primary-100 overflow-hidden z-10" style={{
+      scrollSnapAlign: 'start',
+      minHeight: '100dvh'
+    }}>
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">

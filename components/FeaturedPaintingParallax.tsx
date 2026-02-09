@@ -20,6 +20,15 @@ export default function FeaturedPaintingParallax() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchScrollLeft, setTouchScrollLeft] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile on mount
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Use motion value for scroll progress to update during drag
   const scrollXProgress = useMotionValue(0);
@@ -147,12 +156,16 @@ export default function FeaturedPaintingParallax() {
   return (
     <section
       ref={sectionRef}
-      className="sticky top-0 bg-primary-50 min-h-screen flex flex-col justify-start overflow-hidden z-10 pt-24"
+      className="sticky top-0 bg-primary-50 min-h-screen flex flex-col justify-start overflow-hidden z-10"
       aria-label="Featured artworks gallery"
       tabIndex={0}
-      style={{ scrollSnapAlign: 'start', scrollSnapStop: 'always' }}
+      style={{
+        scrollSnapAlign: 'start',
+        scrollSnapStop: 'always',
+        minHeight: '100dvh'
+      }}
     >
-      <div className="container mx-auto px-4 mb-2">
+      <div className="container mx-auto px-4 mb-2 pt-24 md:pt-32">
         <div className="flex justify-between items-center mb-3">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -223,7 +236,7 @@ export default function FeaturedPaintingParallax() {
           className="flex items-center gap-2 text-sm text-primary-600 italic mt-1"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 12H3m0 0l3-3m-3 3l3 3M14 12h7m0 0l-3-3m3 3l-3 3" />
           </svg>
           <span>Drag to explore or use arrows</span>
         </motion.div>
@@ -251,18 +264,18 @@ export default function FeaturedPaintingParallax() {
         }}
       >
         <div
-          className="flex gap-8 md:gap-12 pl-[20%] md:pl-[28%] pr-[5%] md:pr-[10%] pt-32 pb-4 min-w-max items-start"
+          className="flex gap-6 md:gap-12 pl-[10%] md:pl-[28%] pr-[10%] md:pr-[10%] pt-12 md:pt-32 pb-4 min-w-max items-start"
           style={{
             userSelect: 'none',
           } as React.CSSProperties}
         >
-          {/* Contemporary Art Text - First element in scroll */}
+          {/* Contemporary Art Text - First element in scroll - Hidden on mobile */}
           <motion.div
             style={{
               opacity: textOpacity,
               minHeight: 'min(750px, 82vh)',
             }}
-            className="flex-shrink-0 flex items-start justify-start pointer-events-none -ml-[8%] md:-ml-[10%] pt-32"
+            className="hidden md:flex flex-shrink-0 items-start justify-start pointer-events-none -ml-[8%] md:-ml-[10%] pt-32"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -285,10 +298,12 @@ export default function FeaturedPaintingParallax() {
           {artworks.map((artwork, index) => {
             // Odd images (index 0, 2, 4) start shifted UP
             // Even images (index 1, 3) start shifted DOWN
+            // Disable stagger effect on mobile
             const isOdd = index % 2 === 0;
-            const initialOffset = isOdd ? -offsetAmount : offsetAmount;
+            const initialOffset = isMobile ? 0 : (isOdd ? -offsetAmount : offsetAmount);
 
             // Transform: move from initial offset to 0 (aligned at top) as you scroll horizontally
+            // Disabled on mobile
             const yOffset = useTransform(
               scrollXProgress,
               [0, 0.35],
@@ -298,9 +313,9 @@ export default function FeaturedPaintingParallax() {
             return (
               <React.Fragment key={`artwork-${artwork.id}`}>
               <motion.div
-                style={{ y: yOffset }}
-                className="flex-shrink-0 flex flex-col gap-6 relative"
-                initial={{ opacity: 0, scale: 0.9, y: initialOffset }}
+                style={{ y: isMobile ? 0 : yOffset }}
+                className="flex-shrink-0 flex flex-col gap-4 md:gap-6 relative"
+                initial={{ opacity: 0, scale: isMobile ? 1 : 0.9, y: initialOffset }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{
@@ -308,7 +323,7 @@ export default function FeaturedPaintingParallax() {
                   stiffness: 100,
                   damping: 15,
                   mass: 0.8,
-                  delay: index * 0.08,
+                  delay: isMobile ? 0 : index * 0.08,
                 }}
                 onDragStart={(e) => e.preventDefault()}
               >
@@ -317,13 +332,13 @@ export default function FeaturedPaintingParallax() {
                   draggable={false}
                   style={{
                     width: 'auto',
-                    maxWidth: 'min(550px, 80vw)',
-                    minWidth: '320px',
+                    maxWidth: isMobile ? 'min(320px, 75vw)' : 'min(550px, 80vw)',
+                    minWidth: isMobile ? '280px' : '320px',
                     height: 'auto',
-                    maxHeight: 'min(750px, 82vh)',
-                    minHeight: '480px',
+                    maxHeight: isMobile ? 'min(420px, 60vh)' : 'min(750px, 82vh)',
+                    minHeight: isMobile ? '350px' : '480px',
                     aspectRatio: artwork.aspectRatio.toString(),
-                    filter: 'drop-shadow(0 25px 50px rgba(45, 40, 32, 0.2))',
+                    filter: isMobile ? 'drop-shadow(0 10px 25px rgba(45, 40, 32, 0.15))' : 'drop-shadow(0 25px 50px rgba(45, 40, 32, 0.2))',
                     userSelect: 'none',
                   } as React.CSSProperties}
                 >
@@ -365,27 +380,27 @@ export default function FeaturedPaintingParallax() {
             viewport={{ once: true }}
             transition={{
               duration: 0.8,
-              delay: artworks.length * 0.1,
+              delay: isMobile ? 0 : artworks.length * 0.1,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: isMobile ? 1 : 1.02 }}
             onMouseDown={(e) => e.stopPropagation()}
             aria-label="View all artworks in the gallery"
             className="flex-shrink-0 flex items-center justify-center bg-primary-100/50 backdrop-blur-sm hover:bg-primary-200/50 transition-all duration-500 group cursor-pointer border-2 border-primary-200/50"
             style={{
-              width: '350px',
-              height: '450px',
-              filter: 'drop-shadow(0 25px 50px rgba(45, 40, 32, 0.1))',
+              width: isMobile ? '280px' : '350px',
+              height: isMobile ? '350px' : '450px',
+              filter: isMobile ? 'drop-shadow(0 10px 25px rgba(45, 40, 32, 0.1))' : 'drop-shadow(0 25px 50px rgba(45, 40, 32, 0.1))',
               pointerEvents: 'auto',
             }}
           >
-            <div className="text-center px-8">
-              <h3 className="font-serif text-4xl md:text-5xl font-bold text-primary-900 mb-6 leading-tight">
+            <div className="text-center px-6 md:px-8">
+              <h3 className="font-serif text-3xl md:text-5xl font-bold text-primary-900 mb-4 md:mb-6 leading-tight">
                 View All
                 <br />
                 Works
               </h3>
-              <div className="inline-flex items-center gap-2 text-primary-700 font-medium group-hover:gap-4 transition-all duration-300">
+              <div className="inline-flex items-center gap-2 text-primary-700 text-sm md:text-base font-medium group-hover:gap-4 transition-all duration-300">
                 <span className="border-b-2 border-primary-700">Explore Gallery</span>
                 <svg
                   className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300"
@@ -412,7 +427,7 @@ export default function FeaturedPaintingParallax() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="md:hidden mt-8 text-center text-sm text-primary-600"
+        className="md:hidden mt-4 mb-16 text-center text-sm text-primary-600"
       >
         ← Swipe to explore →
       </motion.div>

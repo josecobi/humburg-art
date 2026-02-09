@@ -6,6 +6,7 @@ import Button from './Button';
 
 export default function Hero() {
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -16,8 +17,34 @@ export default function Hero() {
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
+  // Preload the fallback image for reduced motion users
+  useEffect(() => {
+    if (reducedMotion) {
+      const img = new Image();
+      img.src = '/TVY6064.jpg';
+      img.onload = () => setIsLoaded(true);
+    }
+  }, [reducedMotion]);
+
+  // Fallback timeout to ensure content shows even if load events don't fire
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, 3000); // Show content after 3 seconds max
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <section className="sticky top-0 min-h-screen w-full bg-primary-50 overflow-hidden z-10" style={{ scrollSnapAlign: 'start' }}>
+    <section className="sticky top-0 min-h-screen w-full bg-primary-50 overflow-hidden z-10" style={{
+      scrollSnapAlign: 'start',
+      minHeight: '100dvh'
+    }}>
+      {/* Skeleton Loader */}
+      {!isLoaded && (
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary-100 via-primary-200 to-primary-300 animate-pulse" />
+      )}
+
       {/* Background Video */}
       {!reducedMotion ? (
         <video
@@ -25,16 +52,17 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="/TVY6064.jpg"
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onCanPlay={() => setIsLoaded(true)}
+          onLoadedData={() => setIsLoaded(true)}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       ) : (
         <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ backgroundImage: 'url(/TVY6064.jpg)' }}
           role="img"
           aria-label="Abstract artwork background"

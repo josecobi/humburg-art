@@ -5,7 +5,10 @@ import Button from './Button';
 
 export default function CTA() {
   return (
-    <section className="sticky top-0 min-h-screen flex items-center bg-gradient-to-br from-primary-100 via-primary-50 to-white overflow-hidden z-10 relative" style={{ scrollSnapAlign: 'start' }}>
+    <section className="sticky top-0 min-h-screen flex items-center bg-gradient-to-br from-primary-100 via-primary-50 to-white overflow-hidden z-10 relative" style={{
+      scrollSnapAlign: 'start',
+      minHeight: '100dvh'
+    }}>
       {/* Decorative background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-300 rounded-full blur-3xl"></div>
